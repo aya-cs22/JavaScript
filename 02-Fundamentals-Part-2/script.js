@@ -67,13 +67,94 @@ function fruitPieces(fruit) {
     return fruit * 4;
 }
 
-
-
 function fruitProcessor(apples, oranges) {
     const applesPicess = fruitPieces(apples);
     const orangesPicess = fruitPieces(oranges);
     const juice = `Juice with ${apples} apples and ${oranges} oranges`;
     return `${juice} ${applesPicess} ${orangesPicess} `;
 }
-
 console.log(fruitProcessor(2, 4));
+
+
+
+////////////////////////////////////////  CHALLENGE #1 //////////////////////////////////////
+/*
+Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
+
+Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team).
+
+A team only wins if it has at least double the average score of the other team. Otherwise, no team wins!
+
+Your tasks:
+
+Create an arrow function calcAverage to calculate the average of 3 scores. This function should have three parameters and return a single number (the average score).
+
+Create two new variables — scoreDolphins and scoreKoalas, and assign the value returned from the calcAverage function to them (you will need to call this function, and pass scores as arguments).
+
+Create a function checkWinner that takes the average score of each team as parameters (avgDolphins and avgKoalas), and then logs the winner to the console, together with the victory points, according to the rule above. Example: Koalas win (30 vs. 13) (use avgDolphins and avgKoalas instead of hard-coded values).
+
+Use the checkWinner function to determine the winner for both DATA 1 and DATA 2.
+
+Ignore draws this time. Instead, log No team wins... to the console if there is no winner.
+
+TEST DATA 1: Dolphins scored 44, 23, and 71. Koalas scored 65, 54, and 49.
+TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
+
+*/
+/* Write your code below. Good luck! 🙂 */
+const calcAverage = (score1, score2, score3) => {
+    let avg = (score1 + score2 + score3) / 3;
+    return avg;
+}
+
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
+
+const checkWinner = (scoreDolphins, scoreKoalas) => {
+    if (scoreDolphins * 2 < scoreKoalas) {
+        console.log(`Koalas win (${scoreKoalas} vs. ${scoreDolphins})`)
+
+    } else if (scoreDolphins * 2 > scoreKoalas) {
+        console.log(`Dolphins win (${scoreDolphins} vs. ${scoreKoalas})`)
+    } else {
+        console.log("No team wins...")
+    }
+}
+checkWinner(scoreDolphins, scoreKoalas)
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 24, 27);
+checkWinner(scoreDolphins, scoreKoalas)
+
+
+////////////////////////////////////////  Introduction to Arrays //////////////////////////////////////
+const years = new Array(5, 6, 'aya');
+const friends = ['john', 'joans', 'julen'];
+console.log(friends[0]); //john
+console.log(friends.length); //3
+console.log(friends[friends.length - 1]); // last element in array 'julen'
+
+friends[1] = 'machael';
+console.log(friends); // [ 'john', 'machael', 'julen' ]
+//i can update only element not all array
+// friends = ['machael', 'julen']; // TypeError: Assignment to constant variable. 
+
+
+const firstName = 'aya';
+const aya = [firstName, 20, 'programmer', friends];
+console.log(aya);
+
+const calcAge = (birhYear) => {
+    return 2024 - birhYear;
+}
+const yearss = [1990, 1893, 1999, 1995];
+console.log(yearss + 10);       // 1990,1893,1999,199510  '+' => convert to string
+console.log(yearss - 10);       // NaN
+console.log(calcAge(yearss));   // NaN
+
+
+const age1 = calcAge(yearss[0]);
+const age2 = calcAge(yearss[1]);
+const age3 = calcAge(yearss[yearss.length - 1]);
+console.log(age1, age2, age3);
+const ages = [age1, age2, age3];
+console.log(ages);
