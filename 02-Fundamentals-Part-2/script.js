@@ -207,7 +207,6 @@ for (let i = 0; i < tips.length; i++) {
 }
 console.log(bills, tips, totals);
 
-
 ////////////////////////////////////////  Introduction to Objects //////////////////////////////////////
 const aya = {
     firstName: 'aya',
