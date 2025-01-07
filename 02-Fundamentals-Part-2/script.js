@@ -136,7 +136,7 @@ console.log(friends[friends.length - 1]); // last element in array 'julen'
 friends[1] = 'machael';
 console.log(friends); // [ 'john', 'machael', 'julen' ]
 //i can update only element not all array
-// friends = ['machael', 'julen']; // TypeError: Assignment to constant variable. 
+// friends = ['machael', 'julen']; // TypeError: Assignment to constant variable.
 
 
 const firstName = 'aya';
@@ -158,3 +158,83 @@ const age3 = calcAge(yearss[yearss.length - 1]);
 console.log(age1, age2, age3);
 const ages = [age1, age2, age3];
 console.log(ages);
+
+
+
+////////////////////////////////////////  Basic Array Operations (Methods) //////////////////////////////////////
+// Add elements
+const friends = ['john', 'joans', 'julen'];
+const newLenght = friends.push('joy');
+console.log(friends); //[ 'john', 'joans', 'julen', 'joy' ]
+console.log(newLenght); // 4
+friends.unshift("Steven");
+console.log(friends); // [ 'Steven', 'john', 'joans', 'julen', 'joy' ]
+
+//Remove elements
+const popped = friends.pop();
+console.log(friends); // remove the last element => [ 'Steven', 'john', 'joans', 'julen' ]
+console.log(popped); // joy
+friends.shift();
+console.log(friends); // remove the first element => [ 'john', 'joans', 'julen' ]
+//////========////
+console.log(friends.indexOf('joans')) // 1  joans is  index 1
+console.log(friends.indexOf('Bob')) // -1  Bob not in array
+console.log(friends.includes('joans')) //true
+console.log(friends.includes('Bob')) //false
+friends.push(23);
+console.log(friends.includes('23')) //false
+console.log(friends.includes(23)) //true
+if (friends.includes('joans')) {
+    console.log("You have afriend called joans") // You have afriend called joans
+}
+
+
+////////////////////////////////////////  CHALLENGE #2 //////////////////////////////////////
+/* Write your code below. Good luck! 🙂 */
+
+const calcTip = function (bill) {
+    if (bill >= 50 && bill <= 300) {
+        return (15 / 100) * bill;
+    } else {
+        return (20 / 100) * bill;
+    }
+}
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [];
+for (let i = 0; i < tips.length; i++) {
+    totals.push(bills[i] + tips[i]);
+}
+console.log(bills, tips, totals);
+
+
+////////////////////////////////////////  Introduction to Objects //////////////////////////////////////
+const aya = {
+    firstName: 'aya',
+    lastName: ' anwar',
+    age: 20,
+    mySisterAndBrother: ['Mohamed', 'Esraa', 'Abdoo']
+};
+
+////////////////////////////////////////   Dot vs. Bracket Notation //////////////////////////////////////
+const aya = {
+    firstName: 'aya',
+    lastName: ' anwar',
+    age: 20,
+    mySisterAndBrother: ['Mohamed', 'Esraa', 'Abdoo']
+};
+console.log(aya.firstName); //Dot Notation  outPut :aya 
+console.log(aya["firstName"]); //Bracket Notation  outPut :aya 
+const nameKey = 'Name';
+console.log(aya['first' + nameKey]); //aya
+console.log(aya['last' + nameKey]); //anwar
+// console.log(aya.'first' + nameKey); //SyntaxError: Unexpected string
+const interstedIn = prompt("What do you want to Know about Aya?! chooes between firstName, lastName, age,mySisterAndBrother ");
+if (aya[interstedIn])
+    console.log(aya.interstedIn); // input by user firstName   output => undefined
+if (aya[interstedIn]) {
+    console.log(aya[interstedIn]);// input by user firstName   output => aya
+} else {
+    console.log('Wrong request! chooes between firstName, lastName, age,mySisterAndBrother ')
+}
+console.log(`${aya.firstName} has ${aya.mySisterAndBrother.length} sister and brothers and ${aya.mySisterAndBrother[0]} is the The biggest`)
